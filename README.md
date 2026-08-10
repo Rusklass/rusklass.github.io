@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ruslan Klassen - Research Portfolio
 
-## Getting Started
+A high-performance, futuristic portfolio built with **Next.js (App Router)**, featuring a custom MDX content engine and a unique 9-stage Solar System theme switcher.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Custom MDX Engine:** Write research posts and project showcases in pure Markdown with YAML frontmatter. Automatically parsed and rendered via `next-mdx-remote`.
+- **Solar System Theming:** A highly customized CSS variable-based theme engine supporting 9 distinct color palettes ranging from the Sun to Neptune.
+- **Dynamic Satellite Links:** A CSS-animated, continuously orbiting 360-degree social link arch surrounding the profile avatar.
+- **Static Export:** Fully optimized for static hosting (`output: 'export'`).
+- **Automated Deployment:** CI/CD configured via GitHub Actions to automatically deploy to GitHub Pages on every push to `main`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📂 Project Structure
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- `src/app/` - Next.js App Router pages (About, Research, Projects, Posts).
+- `src/components/` - Reusable UI components (`Sidebar.js`, `ThemeSwitcher.js`).
+- `src/content/` - The MDX data source. Add new `.md` files to `/posts` or `/projects` to publish new content.
+- `src/lib/mdx.js` - The backend utility that parses Markdown frontmatter and resolves slugs.
+- `.github/workflows/deploy.yml` - GitHub Actions pipeline for Pages deployment.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Content Management (Adding Projects & Posts)
 
-## Learn More
+To add a new project or post, simply create a new `.md` file in `src/content/projects` or `src/content/posts`. 
 
-To learn more about Next.js, take a look at the following resources:
+**Supported Frontmatter Variables:**
+- `title`: The title of the post/project.
+- `date`: Publishing date (YYYY-MM-DD).
+- `excerpt`: A short summary for the preview cards.
+- `logo`: (Projects only) Absolute path to a logo in the `public` folder (e.g., `/logo.png`).
+- `tags`: Array of technical tags.
+- `link`: External URL to the project.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 💻 Local Development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Install dependencies: `npm install`
+2. Start the development server: `npm run dev`
+3. Open [http://localhost:3000](http://localhost:3000)
 
-## Deploy on Vercel
+## 🚢 Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deployment is fully automated. Simply commit your changes and push to the `main` branch. GitHub Actions will build the static output and push it to the `gh-pages` branch.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
