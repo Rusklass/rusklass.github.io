@@ -23,6 +23,21 @@ export default function Home() {
         Alongside my wet-lab and analytical work, I develop tools to aid researchers. I am the creator of the <strong><a href="https://pdt.olik.fans/" target="_blank" rel="noopener noreferrer">PrimerDesignTool</a></strong>, a web-based utility for molecular biology workflows.
       </p>
 
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', flexWrap: 'wrap', alignItems: 'center', marginTop: '4rem', padding: '2rem 0', borderTop: '1px solid var(--border)' }}>
+        <a href="https://www.ibt.cas.cz/en/Core-Facility-Research-Laboratories/Glia-Omics-Lab/" target="_blank" rel="noopener noreferrer">
+          <img src="/logoGliaOmicsLab.png" alt="GliaOmicsLab Logo" style={{ height: '40px', objectFit: 'contain' }} />
+        </a>
+        <a href="https://www.labgenexp.eu/" target="_blank" rel="noopener noreferrer">
+          <img src="/logoLabGenExp.png" alt="LabGenExp Logo" style={{ height: '45px', objectFit: 'contain' }} />
+        </a>
+        <a href="https://www.vscht.cz/?jazyk=en" target="_blank" rel="noopener noreferrer">
+          <img src="/logoUCT.png" alt="UCT Prague Logo" style={{ height: '55px', objectFit: 'contain' }} />
+        </a>
+        <a href="https://www.ibt.cas.cz/en/core-facilities/gene-core/" target="_blank" rel="noopener noreferrer">
+          <img src="/logoGeneCore.png" alt="GeneCore Logo" style={{ height: '40px', objectFit: 'contain' }} />
+        </a>
+      </div>
+
     </article>
   );
 }
