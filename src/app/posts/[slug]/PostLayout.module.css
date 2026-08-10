@@ -1,0 +1,57 @@
+.article {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent-primary);
+}
+
+.date {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.content {
+  line-height: 1.8;
+}
+
+.content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.content h2, .content h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.content ul {
+  padding-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content li {
+  margin-bottom: 0.5rem;
+}
+
+.content pre {
+  background-color: #1e1e1e;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.content code {
+  font-family: var(--font-geist-mono), monospace;
+}
