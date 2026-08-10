@@ -25,7 +25,16 @@ export default async function ProjectPage({ params }) {
   return (
     <article className={styles.article}>
       <header className={styles.header}>
-        <h1 className={styles.title}>{frontMatter.title}</h1>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '0.5rem' }}>
+          {frontMatter.logo && (
+            <img 
+              src={frontMatter.logo} 
+              alt={`${frontMatter.title} logo`} 
+              style={{ height: '90px', objectFit: 'contain' }} 
+            />
+          )}
+          <h1 className={styles.title} style={{ marginBottom: 0 }}>{frontMatter.title}</h1>
+        </div>
       </header>
       
       <div className={styles.content}>

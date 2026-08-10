@@ -18,7 +18,16 @@ export default function ProjectsPage() {
       <div className={styles.grid}>
         {projects.map((project) => (
           <Link href={`/projects/${project.slug}`} key={project.slug} className={styles.card}>
-            <h2 className={styles.cardTitle}>{project.title}</h2>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
+              {project.logo && (
+                <img 
+                  src={project.logo} 
+                  alt={`${project.title} logo`} 
+                  style={{ height: '60px', objectFit: 'contain' }} 
+                />
+              )}
+              <h2 className={styles.cardTitle} style={{ marginBottom: 0 }}>{project.title}</h2>
+            </div>
             <p className={styles.cardExcerpt}>{project.excerpt}</p>
           </Link>
         ))}
