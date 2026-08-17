@@ -8,7 +8,8 @@ import styles from './GeneticRain.module.css';
    ========================================================================== */
 export const MATRIX_CONFIG = {
   // 1. CHARACTER POOL: Nucleotides used in the falling streams
-  BASES: ['A', 'C', 'T', 'G', 'U', 'A', 'C', 'G', 'U', 'A', 'T', 'G', 'C'],
+  // BASES: ['A', 'C', 'T', 'G', 'U', 'A', 'C', 'G', 'U', 'A', 'T', 'G', 'C'],
+  BASES: ['A', 'C', 'G', 'U'],
 
   // 2. FONT SIZE: Actual rendered size of letters in pixels (e.g. 22, 26, 30)
   FONT_SIZE: 24,
