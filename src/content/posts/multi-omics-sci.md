@@ -6,7 +6,7 @@ excerpt: "I am thrilled to share that our new study has just been published in M
 
 I am thrilled to share that our new study, *"Integrated multi-omics profiling uncovers miRNA-guided molecular changes in acute spinal cord injury,"* has just been published in Molecular Therapy: Nucleic Acids (MT-NA)!
 
-### 🧬 What We Did & Why It Matters
+### What We Did &amp; Why It Matters
 
 - **Approach:** We applied an integrative multi-omics analysis (miRNA, mRNA, and proteomics) to samples from acute Spinal Cord Injury (SCI).
 - **Discovery:** We successfully mapped the dynamic and coordinated molecular changes occurring across gene, miRNA, and protein levels post-injury.

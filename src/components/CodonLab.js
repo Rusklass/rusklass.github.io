@@ -138,9 +138,8 @@ export default function CodonLab() {
     <div className={styles.labContainer} id="sequence-lab">
       <div className={styles.labHeader}>
         <div className={styles.labTitleGroup}>
-          <div className={styles.labIcon}>🧪</div>
           <div>
-            <h3 className={styles.labTitle}>Interactive Sequence & Codon Lab</h3>
+            <h3 className={styles.labTitle}>Interactive Sequence &amp; Codon Lab</h3>
             <p className={styles.labSubtitle}>
               Live DNA/RNA transcription, translation, and thermodynamic analysis
             </p>
@@ -153,7 +152,7 @@ export default function CodonLab() {
           rel="noopener noreferrer" 
           className={styles.pdtBadge}
         >
-          ⚡ Powered by PrimerDesignTool (PDT) &rarr;
+          Powered by PrimerDesignTool (PDT) &rarr;
         </a>
       </div>
 
@@ -219,7 +218,7 @@ export default function CodonLab() {
               className={styles.copyBtn}
               onClick={() => handleCopy('mrna', mrnaSeq)}
             >
-              {copiedKey === 'mrna' ? '✓ Copied' : 'Copy mRNA'}
+              {copiedKey === 'mrna' ? 'Copied' : 'Copy mRNA'}
             </button>
           </div>
           <div className={styles.sequenceDisplay}>{mrnaSeq || '—'}</div>
@@ -232,7 +231,7 @@ export default function CodonLab() {
               className={styles.copyBtn}
               onClick={() => handleCopy('revcomp', revCompSeq)}
             >
-              {copiedKey === 'revcomp' ? '✓ Copied' : 'Copy RevComp'}
+              {copiedKey === 'revcomp' ? 'Copied' : 'Copy RevComp'}
             </button>
           </div>
           <div className={styles.sequenceDisplay}>{revCompSeq || '—'}</div>
@@ -246,7 +245,7 @@ export default function CodonLab() {
               className={styles.copyBtn}
               onClick={() => handleCopy('peptide', peptideTranslation.map(p => p.s).join(''))}
             >
-              {copiedKey === 'peptide' ? '✓ Copied' : 'Copy Peptide'}
+              {copiedKey === 'peptide' ? 'Copied' : 'Copy Peptide'}
             </button>
           </div>
           

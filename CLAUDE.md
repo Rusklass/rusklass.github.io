@@ -1,10 +1,10 @@
-# 🌌 Ruslan Klassen Portfolio — Developer & Claude Guide
+# Ruslan Klassen Portfolio — Developer & Claude Guide
 
 Personal academic, bioinformatic, and computational portfolio of **Ruslan Klassen** built with Next.js (App Router), Vanilla CSS Modules, and MDX.
 
 ---
 
-## ⚡ Quick Commands
+## Quick Commands
 - **Install dependencies:** `npm install`
 - **Start local dev server:** `npm run dev` (runs at `http://localhost:3000`)
 - **Build static export:** `npm run build` (outputs static HTML/CSS/JS to `/out` directory)
@@ -12,7 +12,7 @@ Personal academic, bioinformatic, and computational portfolio of **Ruslan Klasse
 
 ---
 
-## 🧭 Architecture & Code Conventions
+## Architecture & Code Conventions
 
 ### 1. Theming (Solar System Engine)
 - The site uses a **9-stage CSS variable theme system** mapped to planetary bodies (`sun`, `mercury`, `venus`, `earth`, `mars`, `jupiter`, `saturn`, `uranus`, `neptune`).
@@ -38,6 +38,6 @@ Personal academic, bioinformatic, and computational portfolio of **Ruslan Klasse
 
 ---
 
-## 🔍 Pre-Push Verification Checklist
+## Pre-Push Verification Checklist
 1. Run `npm run build` — ensure 100% successful static export without SSR or param errors.
 2. Check `git status` — ensure sensitive drafts and agent logs remain ignored by `.gitignore`.

@@ -57,23 +57,23 @@ export default function Sidebar() {
 
       <nav className={styles.nav}>
         <Link href="/" className={styles.navLink}>
-          <span>🧬 Overview &amp; Research</span>
+          <span>Overview &amp; Research</span>
           <span className={styles.navBadge}>01</span>
         </Link>
         <Link href="/research" className={styles.navLink}>
-          <span>🔬 Publications &amp; Omics</span>
+          <span>Publications &amp; Omics</span>
           <span className={styles.navBadge}>02</span>
         </Link>
         <Link href="/projects" className={styles.navLink}>
-          <span>💻 Software &amp; PDT</span>
+          <span>Software &amp; Tools</span>
           <span className={styles.navBadge}>03</span>
         </Link>
         <Link href="/beyond" className={styles.navLink}>
-          <span>🎨 Beyond Science</span>
+          <span>Beyond Science</span>
           <span className={styles.navBadge}>04</span>
         </Link>
         <Link href="/posts" className={styles.navLink}>
-          <span>📓 Notebook &amp; Posts</span>
+          <span>Notebook &amp; Posts</span>
           <span className={styles.navBadge}>05</span>
         </Link>
       </nav>

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './GeneticRain.module.css';
 
 /* ==========================================================================
-   🧬 RNA MATRIX CONFIGURATION & TWEAKING PARAMETERS
+   RNA MATRIX CONFIGURATION & TWEAKING PARAMETERS
    ========================================================================== */
 export const MATRIX_CONFIG = {
   // 1. CHARACTER POOL: Nucleotides used in the falling streams

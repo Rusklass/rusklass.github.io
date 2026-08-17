@@ -8,7 +8,6 @@ export const metadata = {
 const BEYOND_SECTIONS = [
   {
     id: 'expeditions',
-    icon: '🏔️',
     tag: '01 // Mental Resilience',
     title: 'Backcountry Expeditions & Siberian Roots',
     text: `My approach to problem-solving was forged in Siberia through competitive
@@ -23,7 +22,6 @@ const BEYOND_SECTIONS = [
   },
   {
     id: 'fermentation',
-    icon: '🍺',
     tag: '02 // Applied Microbiology',
     title: 'Home Fermentation & Microbial Dynamics',
     text: `Fermentation is applied microbiology at home. I explore yeast metabolic kinetics,
@@ -34,28 +32,6 @@ const BEYOND_SECTIONS = [
     caption: 'Applied Microbiology & Fermentation Kinetics',
     hasImage: true,
   },
-  /*{
-    id: 'culinary',
-    icon: '🍳',
-    tag: '03 // Food Chemistry',
-    title: 'Thermodynamics of Precision Cooking',
-    text: `Approaching cooking through thermodynamics and reaction kinetics: using precise sous-vide techniques to hit exact protein denaturation curves, managing enzymatic conversions, and balancing structural texture with flavor biochemistry.`,
-    takeaway: 'Applying thermodynamic phase transitions to culinary craft.',
-    imagePath: '/images/beyond/culinary.jpg',
-    placeholder: 'Drop culinary & sous-vide photos here: /public/images/beyond/culinary.jpg',
-    hasImage: false,
-  },
-  {
-    id: 'jewelry',
-    icon: '💍',
-    tag: '04 // Spatial Geometry & Art',
-    title: 'Digital Sculpting & Thematic 3D Jewelry',
-    text: `I design and digitally sculpt custom thematic signet rings and tactile jewelry, drawing aesthetic inspiration from dark fantasy, Lovecraftian mythos, and Dungeons & Dragons. Using ZBrush, the translation of geometric forms into castable digital models requires balancing durability and spatial geometry.`,
-    takeaway: 'Translating organic, dark fantasy forms into physical metal geometry.',
-    imagePath: '/images/beyond/jewelry.png',
-    caption: 'ZBrush 3D Digital Sculpting & Tactile Jewelry',
-    hasImage: true,
-  },*/
 ];
 
 export default function BeyondSciencePage() {
@@ -64,7 +40,7 @@ export default function BeyondSciencePage() {
       {/* Header */}
       <header className={styles.header}>
         <div className={styles.tag}>
-          <span>🎨 Beyond the Terminal • Craft &amp; Systems</span>
+          <span>Beyond the Terminal • Craft &amp; Systems</span>
         </div>
         <h1 className={styles.title}>Beyond Science: Craft, Systems &amp; The Human Element</h1>
         <p className={styles.subtitle}>
@@ -87,11 +63,11 @@ export default function BeyondSciencePage() {
             <div className={styles.cardContent}>
               <div className={styles.cardMeta}>{section.tag}</div>
               <h2 className={styles.cardTitle}>
-                {section.icon} {section.title}
+                {section.title}
               </h2>
               <p className={styles.cardText}>{section.text}</p>
               <div className={styles.keyTakeaway}>
-                💡 <strong>Key Takeaway:</strong> {section.takeaway}
+                <strong>Key Takeaway:</strong> {section.takeaway}
               </div>
             </div>
 
@@ -105,12 +81,10 @@ export default function BeyondSciencePage() {
                   />
                   <div className={styles.imageCaption}>
                     <span>{section.caption}</span>
-                    <span>📷</span>
                   </div>
                 </div>
               ) : (
                 <div className={styles.placeholderBox}>
-                  <span className={styles.placeholderIcon}>{section.icon}</span>
                   <p className={styles.placeholderText}>
                     {section.placeholder}
                   </p>

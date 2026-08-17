@@ -7,7 +7,7 @@ export default function Home() {
       {/* 1. HERO & MISSION */}
       <section className={styles.heroSection}>
         <div className={styles.heroTag}>
-          <span>🧬 Multi-Omics • Glial Neuroscience • Scientific Software</span>
+          <span>Multi-Omics • Glial Neuroscience • Scientific Software</span>
         </div>
 
         <h1 className={styles.heroTitle}>
@@ -33,7 +33,7 @@ export default function Home() {
         <div className={styles.trajectoryGrid}>
           <div className={styles.storyCard}>
             <div className={styles.storyCardHeader}>
-              <span className={styles.storyIcon}>🏔️</span>
+              <span className={styles.storyNumber}>01</span>
               <h3 className={styles.storyCardTitle}>Siberian Roots &amp; The Endurance Mindset</h3>
             </div>
             <p className={styles.storyCardText}>
@@ -43,7 +43,7 @@ export default function Home() {
 
           <div className={styles.storyCard}>
             <div className={styles.storyCardHeader}>
-              <span className={styles.storyIcon}>⚡</span>
+              <span className={styles.storyNumber}>02</span>
               <h3 className={styles.storyCardTitle}>The Automation Pivot @ UCT Prague</h3>
             </div>
             <p className={styles.storyCardText}>
@@ -53,7 +53,7 @@ export default function Home() {
 
           <div className={styles.storyCard}>
             <div className={styles.storyCardHeader}>
-              <span className={styles.storyIcon}>🧬</span>
+              <span className={styles.storyNumber}>03</span>
               <h3 className={styles.storyCardTitle}>Decoding Acute CNS Trauma @ BIOCEV</h3>
             </div>
             <p className={styles.storyCardText}>
@@ -63,7 +63,7 @@ export default function Home() {
 
           <div className={styles.storyCard}>
             <div className={styles.storyCardHeader}>
-              <span className={styles.storyIcon}>🛡️</span>
+              <span className={styles.storyNumber}>04</span>
               <h3 className={styles.storyCardTitle}>Glial Heterogeneity &amp; The Microenvironment</h3>
             </div>
             <p className={styles.storyCardText}>
@@ -140,7 +140,7 @@ export default function Home() {
               <strong>Ruslan Klassen</strong>, Sarka Chytilova, Ivan Arzhanov, Daniel Zucha, Eva Rohlova, Peter Androvic, Pavel Abaffy, Lucia Urdzikova-Machova, Mikael Kubista, Nataliya Romanyuk, Lukas Valihrach
             </p>
             <div className={styles.pubHighlight}>
-              💡 <strong>The Breakthrough:</strong> Built the first verified tri-layer interactome (miRNA–mRNA–Protein) mapping acute SCI, revealing how non-coding miRNAs orchestrate post-injury molecular reprogramming.
+              <strong>The Breakthrough:</strong> Built the first verified tri-layer interactome (miRNA–mRNA–Protein) mapping acute SCI, revealing how non-coding miRNAs orchestrate post-injury molecular reprogramming.
             </div>
           </a>
 
@@ -163,7 +163,7 @@ export default function Home() {
               Kristyna Sintakova, Vojtech Sprincl, Ivan Arzhanov, <strong>Ruslan Klassen</strong>, Lukas Valihrach, Nataliya Romanyuk
             </p>
             <div className={styles.pubHighlight}>
-              💡 <strong>The Finding:</strong> Demonstrating how stem cell-derived EVs act as paracrine messengers, delivering regulatory small non-coding RNAs to dampen secondary neuroinflammation.
+              <strong>The Finding:</strong> Demonstrating how stem cell-derived EVs act as paracrine messengers, delivering regulatory small non-coding RNAs to dampen secondary neuroinflammation.
             </div>
           </a>
         </div>
@@ -185,7 +185,6 @@ export default function Home() {
         <div className={styles.softwareShowcase}>
           <div className={styles.softwareHeader}>
             <div className={styles.softwareTitleGroup}>
-              <span style={{ fontSize: '2rem' }}>⚡</span>
               <div>
                 <h3 className={styles.softwareTitle}>Two-Tailed RT-qPCR Primer Design Tool (PDT)</h3>
                 <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
