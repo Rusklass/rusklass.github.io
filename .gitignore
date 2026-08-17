@@ -41,4 +41,17 @@ yarn-error.log*
 next-env.d.ts
 
 # Ignore info text files
-info/*.txt
+info/
+*.txt
+
+# Agentic workflows, guides & blueprints
+index.md
+claude-progress.md
+progress.md
+feature_list.json
+init.sh
+IDENTITY_AND_INTERVIEW_BLUEPRINT.md
+DRAFT_NARRATIVE_AND_STORY.md
+info.md
+AGENTS.md
+CLAUDE.md

@@ -1,224 +1,287 @@
-/* Solar System Themes */
+/* ==========================================================================
+   RUSLAN KLASSEN - PORTFOLIO DESIGN SYSTEM
+   Swiss-Bauhaus Precision meets Molecular Genetics & Bioinformatics
+   ========================================================================== */
+
+/* Matrix Webfonts */
+@font-face {
+  font-family: 'MatrixSansPrint';
+  src: url('/fonts/MatrixSansPrint-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MatrixSans';
+  src: url('/fonts/MatrixSans-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MatrixSansScreen';
+  src: url('/fonts/MatrixSansScreen-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MatrixSansVideo';
+  src: url('/fonts/MatrixSansVideo-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MatrixSansRaster';
+  src: url('/fonts/MatrixSansRaster-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --transition-speed: 0.5s;
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --font-mono-code: 'SF Mono', Monaco, 'Cascadia Code', 'Fira Code', Menlo, Consolas, monospace;
+  --font-matrix: 'MatrixSansPrint', 'MatrixSans', monospace;
 }
 
-/* 1. Sun */
-[data-theme="sun"] {
-  --bg-primary: #fffbeb;
+/* --------------------------------------------------------------------------
+   THEME 1: Swiss Lab Dark (Default)
+   Bauhaus Charcoal + Electric Cyan / Confocal GFP Glia
+   Pattern: Dotted Matrix Grid
+   -------------------------------------------------------------------------- */
+[data-theme="swiss-dark"] {
+  --bg-primary: #0a0c10;
+  --bg-secondary: #12151c;
+  --bg-card: rgba(18, 21, 28, 0.85);
+  --bg-card-hover: rgba(26, 31, 41, 0.95);
+  --bg-glass: rgba(14, 17, 24, 0.75);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-primary: #00f2fe;
+  --accent-secondary: #10b981;
+  --accent-hover: #38bdf8;
+  --accent-warning: #f59e0b;
+  --border-subtle: #1e2530;
+  --border-strong: #334155;
+  --border-accent: rgba(0, 242, 254, 0.4);
+  --glow-accent: 0 0 25px rgba(0, 242, 254, 0.25);
+  --glow-secondary: 0 0 20px rgba(16, 185, 129, 0.2);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+  --rain-color: #00f2fe;
+  --rain-head: #ffffff;
+  --rain-dim: rgba(0, 242, 254, 0.15);
+  --badge-bg: rgba(0, 242, 254, 0.1);
+  --badge-border: rgba(0, 242, 254, 0.3);
+  /* Dotted matrix pattern */
+  --bg-pattern: radial-gradient(rgba(255, 255, 255, 0.14) 1.2px, transparent 1.2px);
+  --bg-pattern-size: 28px 28px;
+}
+
+/* --------------------------------------------------------------------------
+   THEME 2: Phosphor RNA Matrix Terminal
+   Deep Biopunk Obsidian + Phosphor RNA Emerald
+   Pattern: Clean Solid Obsidian (No grid lines)
+   -------------------------------------------------------------------------- */
+[data-theme="matrix-terminal"] {
+  --bg-primary: #030706;
+  --bg-secondary: #08100c;
+  --bg-card: rgba(8, 16, 12, 0.85);
+  --bg-card-hover: rgba(12, 26, 18, 0.95);
+  --bg-glass: rgba(5, 12, 9, 0.8);
+  --text-primary: #d1fae5;
+  --text-secondary: #6ee7b7;
+  --text-muted: #059669;
+  --accent-primary: #00ff66;
+  --accent-secondary: #10b981;
+  --accent-hover: #4ade80;
+  --accent-warning: #fbbf24;
+  --border-subtle: #0f2e1e;
+  --border-strong: #10b981;
+  --border-accent: rgba(0, 255, 102, 0.4);
+  --glow-accent: 0 0 25px rgba(0, 255, 102, 0.3);
+  --glow-secondary: 0 0 20px rgba(16, 185, 129, 0.25);
+  --shadow-card: 0 10px 30px -10px rgba(0, 255, 102, 0.1);
+  --rain-color: #00ff66;
+  --rain-head: #ffffff;
+  --rain-dim: rgba(0, 255, 102, 0.2);
+  --badge-bg: rgba(0, 255, 102, 0.12);
+  --badge-border: rgba(0, 255, 102, 0.35);
+  /* No grid lines in Matrix */
+  --bg-pattern: none;
+  --bg-pattern-size: 0px 0px;
+}
+
+/* --------------------------------------------------------------------------
+   THEME 3: Bauhaus International Typographic Light
+   Architectural Paper + Carbon Black Ink + Primary Accents
+   Pattern: Clean Squared Lines Grid
+   -------------------------------------------------------------------------- */
+[data-theme="bauhaus-light"] {
+  --bg-primary: #f5f5f0;
   --bg-secondary: #ffffff;
-  --text-primary: #78350f;
-  --text-secondary: #b45309;
-  --accent-primary: #fbbf24;
-  --accent-hover: #f59e0b;
-  --border-color: #fde68a;
-  --shadow-md: 0 4px 15px rgba(251, 191, 36, 0.4);
-  --glass-bg: rgba(255, 255, 255, 0.9);
-  --glow-effect: 0 0 20px rgba(251, 191, 36, 0.6);
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --bg-card-hover: #ffffff;
+  --bg-glass: rgba(245, 245, 240, 0.9);
+  --text-primary: #111111;
+  --text-secondary: #444444;
+  --text-muted: #777777;
+  --accent-primary: #0038ff;
+  /* Bauhaus Cobalt */
+  --accent-secondary: #e63946;
+  /* Bauhaus Vermilion */
+  --accent-hover: #0022aa;
+  --accent-warning: #d97706;
+  /* Ochre */
+  --border-subtle: #e2e2dc;
+  --border-strong: #111111;
+  --border-accent: #0038ff;
+  --glow-accent: 0 4px 15px rgba(0, 56, 255, 0.15);
+  --glow-secondary: 0 4px 15px rgba(230, 57, 70, 0.15);
+  --shadow-card: 0 6px 20px rgba(0, 0, 0, 0.07);
+  --rain-color: #0038ff;
+  --rain-head: #111111;
+  --rain-dim: rgba(0, 56, 255, 0.08);
+  --badge-bg: rgba(0, 56, 255, 0.08);
+  --badge-border: rgba(0, 56, 255, 0.25);
+  /* Squared lines grid */
+  --bg-pattern:
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  --bg-pattern-size: 36px 36px;
 }
 
-/* 2. Mercury */
-[data-theme="mercury"] {
-  --bg-primary: #1f2937;
-  --bg-secondary: #374151;
-  --text-primary: #f3f4f6;
-  --text-secondary: #9ca3af;
-  --accent-primary: #9ca3af;
-  --accent-hover: #d1d5db;
-  --border-color: #4b5563;
-  --shadow-md: 0 4px 15px rgba(156, 163, 175, 0.2);
-  --glass-bg: rgba(55, 65, 81, 0.85);
-  --glow-effect: 0 0 15px rgba(156, 163, 175, 0.4);
-}
-
-/* 3. Venus */
-[data-theme="venus"] {
-  --bg-primary: #4a3311;
-  --bg-secondary: #2d1f0a;
-  --text-primary: #fef08a;
-  --text-secondary: #fde047;
-  --accent-primary: #eab308;
-  --accent-hover: #ca8a04;
-  --border-color: #713f12;
-  --shadow-md: 0 4px 15px rgba(234, 179, 8, 0.3);
-  --glass-bg: rgba(45, 31, 10, 0.85);
-  --glow-effect: 0 0 15px rgba(234, 179, 8, 0.5);
-}
-
-/* 4. Earth */
-[data-theme="earth"] {
-  --bg-primary: #f0fdf4;
-  --bg-secondary: #ffffff;
-  --text-primary: #1e3a8a;
-  --text-secondary: #3b82f6;
-  --accent-primary: #22c55e;
-  --accent-hover: #16a34a;
-  --border-color: #bbf7d0;
-  --shadow-md: 0 4px 15px rgba(34, 197, 94, 0.2);
-  --glass-bg: rgba(255, 255, 255, 0.9);
-  --glow-effect: 0 0 15px rgba(34, 197, 94, 0.4);
-}
-
-/* 5. Mars */
-[data-theme="mars"] {
-  --bg-primary: #450a0a;
-  --bg-secondary: #250505;
-  --text-primary: #fecaca;
-  --text-secondary: #f87171;
-  --accent-primary: #dc2626;
-  --accent-hover: #b91c1c;
-  --border-color: #7f1d1d;
-  --shadow-md: 0 4px 15px rgba(220, 38, 38, 0.3);
-  --glass-bg: rgba(37, 5, 5, 0.85);
-  --glow-effect: 0 0 15px rgba(220, 38, 38, 0.6);
-}
-
-/* 6. Jupiter */
-[data-theme="jupiter"] {
-  --bg-primary: #fff7ed;
-  --bg-secondary: #ffedd5;
-  --text-primary: #7c2d12;
-  --text-secondary: #b45309;
-  --accent-primary: #d97706;
-  --accent-hover: #b45309;
-  --border-color: #fed7aa;
-  --shadow-md: 0 4px 15px rgba(217, 119, 6, 0.2);
-  --glass-bg: rgba(255, 237, 213, 0.9);
-  --glow-effect: 0 0 15px rgba(217, 119, 6, 0.4);
-}
-
-/* 7. Saturn */
-[data-theme="saturn"] {
-  --bg-primary: #171717;
-  --bg-secondary: #262626;
-  --text-primary: #fde047;
-  --text-secondary: #fef08a;
-  --accent-primary: #fcd34d;
-  --accent-hover: #fbbf24;
-  --border-color: #404040;
-  --shadow-md: 0 4px 15px rgba(252, 211, 77, 0.2);
-  --glass-bg: rgba(38, 38, 38, 0.85);
-  --glow-effect: 0 0 15px rgba(252, 211, 77, 0.4);
-}
-
-/* 8. Uranus */
-[data-theme="uranus"] {
-  --bg-primary: #f0fdfa;
-  --bg-secondary: #ccfbf1;
-  --text-primary: #134e4a;
-  --text-secondary: #0f766e;
-  --accent-primary: #14b8a6;
-  --accent-hover: #0d9488;
-  --border-color: #99f6e4;
-  --shadow-md: 0 4px 15px rgba(20, 184, 166, 0.2);
-  --glass-bg: rgba(204, 251, 241, 0.9);
-  --glow-effect: 0 0 15px rgba(20, 184, 166, 0.4);
-}
-
-/* 9. Neptune */
-[data-theme="neptune"] {
-  --bg-primary: #020617;
-  --bg-secondary: #0f172a;
-  --text-primary: #e0f2fe;
-  --text-secondary: #38bdf8;
-  --accent-primary: #0ea5e9;
-  --accent-hover: #0284c7;
-  --border-color: #1e293b;
-  --shadow-md: 0 4px 15px rgba(14, 165, 233, 0.3);
-  --glass-bg: rgba(15, 23, 42, 0.85);
-  --glow-effect: 0 0 15px rgba(14, 165, 233, 0.6);
-}
-
+/* ==========================================================================
+   BASE & RESET
+   ========================================================================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   min-height: 100vh;
-  /* Removed choppy background-image transitions, focusing purely on background-color fading */
-  transition: background-color var(--transition-speed) ease, 
-              color var(--transition-speed) ease;
+  position: relative;
+  overflow-x: hidden;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  background-image: var(--bg-pattern);
+  background-size: var(--bg-pattern-size);
 }
 
-/* Layout */
+/* Container & Layout */
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .app-container {
     flex-direction: row;
-    padding: 2rem;
+    padding: 1.5rem 2rem;
     gap: 2rem;
   }
 }
 
 .main-content {
   flex: 1;
-  background-color: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 3rem;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-color);
-  animation: fadeIn 0.8s ease-out;
-  transition: all var(--transition-speed) ease;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  position: relative;
+  z-index: 2;
 }
 
-.main-content:hover {
-  box-shadow: var(--glow-effect);
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  transition: color var(--transition-normal);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
 }
 
-/* Base Elements */
+h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+h3 {
+  font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  transition: color var(--transition-normal);
+}
+
 a {
   color: var(--accent-primary);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color var(--transition-fast), text-shadow var(--transition-fast);
 }
 
 a:hover {
   color: var(--accent-hover);
-  text-shadow: var(--glow-effect);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: var(--text-primary);
-  margin-bottom: 1.2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  transition: color var(--transition-speed) ease;
+code,
+pre {
+  font-family: var(--font-mono-code);
 }
 
-p {
-  margin-bottom: 1.2rem;
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-  transition: color var(--transition-speed) ease;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-ul {
-  padding-left: 1.5rem;
-  margin-bottom: 1.5rem;
-  color: var(--text-secondary);
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
 }
 
-li {
-  margin-bottom: 0.5rem;
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
 }

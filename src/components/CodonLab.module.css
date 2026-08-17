@@ -1,0 +1,327 @@
+.labContainer {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2.5rem 0;
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.labContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary));
+}
+
+.labHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.labTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.labIcon {
+  font-size: 1.8rem;
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
+  padding: 0.4rem 0.6rem;
+  border-radius: 10px;
+}
+
+.labTitle {
+  font-size: 1.4rem;
+  margin-bottom: 0.2rem;
+  color: var(--text-primary);
+}
+
+.labSubtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.pdtBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono-code);
+  font-size: 0.78rem;
+  background: var(--badge-bg);
+  color: var(--accent-primary);
+  border: 1px solid var(--badge-border);
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.pdtBadge:hover {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  box-shadow: var(--glow-accent);
+}
+
+/* Presets */
+.presetBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+
+.presetLabel {
+  font-family: var(--font-mono-code);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.presetBtn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-family: var(--font-mono-code);
+  font-size: 0.78rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.presetBtn:hover {
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+.presetBtnActive {
+  background: var(--badge-bg);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+/* Input Area */
+.inputArea {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.seqTextarea {
+  width: 100%;
+  min-height: 80px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.9rem;
+  color: var(--accent-primary);
+  font-family: var(--font-mono-code);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  resize: vertical;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.seqTextarea:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px var(--badge-bg);
+}
+
+.inputMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.4rem;
+  font-family: var(--font-mono-code);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Metrics Grid */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.metricCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.metricLabel {
+  font-family: var(--font-mono-code);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2rem;
+}
+
+.metricValue {
+  font-family: var(--font-mono-code);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+/* Results Display */
+.resultsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.resultBox {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.resultBoxHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.resultBoxTitle {
+  font-family: var(--font-mono-code);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.copyBtn {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-family: var(--font-mono-code);
+  font-size: 0.72rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.copyBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.sequenceDisplay {
+  font-family: var(--font-mono-code);
+  font-size: 0.9rem;
+  word-break: break-all;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Peptides Ribbon */
+.peptideRibbon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.peptidePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-mono-code);
+  font-size: 0.78rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.aaStart {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.aaStop {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.aaHydrophobic {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+.aaPolar {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+}
+
+.aaBasic {
+  background: rgba(234, 179, 8, 0.15);
+  color: #facc15;
+}
+
+.aaAcidic {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+}
+
+.pdtFooterCta {
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pdtCtaText {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.pdtLaunchBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  padding: 0.5rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.pdtLaunchBtn:hover {
+  box-shadow: var(--glow-accent);
+  transform: translateY(-1px);
+}

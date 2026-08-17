@@ -1,6 +1,0 @@
-IDEA
-https://github.com/lexi-jones/lexi-jones.github.io
-INFO
-https://lexi-jones.github.io/website-creation/
-minimal mistakes repo
-https://github.com/mmistakes/minimal-mistakes
