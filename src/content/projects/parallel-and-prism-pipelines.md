@@ -20,37 +20,38 @@ To address these challenges, I built two complementary pipeline architectures:
 Parallel v2.0 shifts the analytical focus from whole-transcript counts to single-nucleotide cleavage coordinates across biological RNA domains. It uses the **ShardMap** hardware-accelerated mapping framework integrated with dual Bowtie and STAR alignment engines.
 
 ```
-                    ┌──────────────────────────────────────────────┐
-                    │ Filtered FASTQ Reads (Reamp R1, 15–100 nt)   │
-                    └──────────────────────┬───────────────────────┘
-                                           │
-                    ┌──────────────────────▼───────────────────────┐
-                    │ Exclusive Domain Cascade Alignment           │
-                    │ 1. Small RNA (miRNA via miRge3, tRNA, sn/sno)│
-                    │ 2. Long RNA (GENCODE v50 exons & lncRNAs)    │
-                    │ 3. Microbial QC (SILVA 138.2, post-human)    │
-                    └──────────────────────┬───────────────────────┘
-                                           │
-                    ┌──────────────────────▼───────────────────────┐
-                    │ Immutable Positional Event Ledgers           │
-                    │ Unit biological mass (w <= 1) per read       │
-                    └──────────────────────┬───────────────────────┘
-                                           │
-             ┌─────────────────────────────┴─────────────────────────────┐
-             ▼                                                           ▼
-┌───────────────────────────────┐           ┌───────────────────────────────────────────┐
-│ Single-Base Cleavage Profiling│           │ Distribution Shape Metrics                │
-│ Exact 5' and 3' cut endpoints │           │ Total Variation & Wasserstein 1D distances│
-└──────────────┬────────────────┘           └─────────────────────┬─────────────────────┘
-               │                                                  │
-               └───────────────────────┬──────────────────────────┘
-                                       │
-                    ┌──────────────────▼──────────────────┐
-                    │ Statistical Testing & Guardrails    │
-                    │ PERMANOVA with PERMDISP checks      │
-                    │ Group-blind peak detection          │
-                    │ Within-domain Benjamini-Hochberg    │
-                    └─────────────────────────────────────┘
+                    ┌───────────────────────────────────────────────┐
+                    │  Filtered FASTQ Reads (Reamp R1, 15–100 nt)   │
+                    └───────────────────────┬───────────────────────┘
+                                            │
+                    ┌───────────────────────▼───────────────────────┐
+                    │  Exclusive Domain Cascade Alignment           │
+                    │  1. Small RNA (miRNA via miRge3, tRNA, sno)   │
+                    │  2. Long RNA (GENCODE v50 exons & lncRNAs)    │
+                    │  3. Microbial QC (SILVA 138.2, post-human)    │
+                    └───────────────────────┬───────────────────────┘
+                                            │
+                    ┌───────────────────────▼───────────────────────┐
+                    │  Immutable Positional Event Ledgers           │
+                    │  Unit biological mass (w <= 1) per read       │
+                    └───────────────────────┬───────────────────────┘
+                                            │
+                     ┌──────────────────────┴──────────────────────┐
+                     ▼                                             ▼
+┌─────────────────────────────────────────┐   ┌─────────────────────────────────────────┐
+│ Single-Base Cleavage Profiling          │   │ Distribution Shape Metrics              │
+│ Exact 5' and 3' cut endpoints           │   │ Total Variation (TV) distance (primary) │
+│ BedGraph coordinate ledgers (w <= 1)    │   │ Wasserstein 1D sensitivity check        │
+└────────────────────┬────────────────────┘   └────────────────────┬────────────────────┘
+                     │                                             │
+                     └──────────────────────┬──────────────────────┘
+                                            │
+                    ┌───────────────────────▼───────────────────────┐
+                    │  Statistical Testing & Dispersion Guardrails  │
+                    │  PERMANOVA with PERMDISP checks               │
+                    │  Group-blind peak detection                   │
+                    │  Within-domain Benjamini-Hochberg FDR control │
+                    └───────────────────────────────────────────────┘
 ```
 
 #### Key Architecture Principles:
@@ -78,37 +79,39 @@ Parallel v2.0 shifts the analytical focus from whole-transcript counts to single
 PRISM (**P**oly-modal **R**eference-free **I**dentification of **S**ignatures & **M**arkers) is an alignment-free pipeline. Rather than mapping against a reference genome, PRISM operates directly on raw sequence space using k-mers and compacted de Bruijn graphs (cDBG).
 
 ```
-                    ┌──────────────────────────────────────────────┐
-                    │ Input Reads (FASTQ / Residual Unmapped)      │
-                    └──────────────────────┬───────────────────────┘
-                                           │
-                    ┌──────────────────────▼───────────────────────┐
-                    │ k-mer Decomposition (KMC3: k=21, k=31)       │
-                    └──────────────────────┬───────────────────────┘
-                                           │
-             ┌─────────────────────────────┴─────────────────────────────┐
-             ▼                                                           ▼
-┌───────────────────────────────────────────┐ ┌───────────────────────────────────────────┐
-│ Branch A: Count Reduction & Clustering    │ │ Branch B: Topological Graph Association   │
-│ • Abundance matrix filtering              │ │ • Compacted de Bruijn graph (cDBG)        │
-│ • KaMRaT association ranking & contigs    │ │ • Unitig phenotype testing (edgeR QL)     │
-│ • Linclust/MMseqs2 sequence clustering    │ │ • Bubble extraction (splicing/structural) │
-└─────────────────────┬─────────────────────┘ └─────────────────────┬─────────────────────┘
-                      │                                             │
-                      │ (Consensus Centroids)                       │ (Unitigs & Splicing Bubbles)
-                      └──────────────────────┬──────────────────────┘
-                                             │
-                    ┌────────────────────────▼─────────────────────┐
-                    │ Dual-Branch Convergence & DP Path Stitching  │
-                    │ Consolidated Golden Biomarker Signatures     │
-                    └────────────────────────┬─────────────────────┘
-                                             │
-             ┌───────────────────────────────┴───────────────────────────┐
-             ▼                                                           ▼
-┌───────────────────────────────────────────┐ ┌───────────────────────────────────────────┐
-│ Retrospective Biological Annotation       │ │ Cross-Validated Machine Learning          │
-│ GENCODE, tRF, RepeatMasker, SILVA QC      │ │ Nested CV with ElasticNet & Random Forest │
-└───────────────────────────────────────────┘ └───────────────────────────────────────────┘
+                    ┌───────────────────────────────────────────────┐
+                    │  Input Reads (FASTQ / Residual Unmapped)      │
+                    └───────────────────────┬───────────────────────┘
+                                            │
+                    ┌───────────────────────▼───────────────────────┐
+                    │  k-mer Decomposition (KMC3: k=21, k=31)       │
+                    └───────────────────────┬───────────────────────┘
+                                            │
+                     ┌──────────────────────┴──────────────────────┐
+                     ▼                                             ▼
+┌─────────────────────────────────────────┐   ┌─────────────────────────────────────────┐
+│ Branch A: Count Reduction & Clustering  │   │ Branch B: Topological Graph Association │
+│ - Abundance matrix filtering            │   │ - Compacted de Bruijn graph (cDBG)      │
+│ - KaMRaT association ranking & contigs  │   │ - Unitig phenotype testing (edgeR QL)   │
+│ - Linclust/MMseqs2 sequence clustering  │   │ - Bubble extraction (splicing & loops)  │
+└────────────────────┬────────────────────┘   └────────────────────┬────────────────────┘
+                     │                                             │
+           (Consensus Centroids)                         (Unitigs & Bubbles)
+                     │                                             │
+                     └──────────────────────┬──────────────────────┘
+                                            │
+                    ┌───────────────────────▼───────────────────────┐
+                    │  Dual-Branch Convergence & DP Path Stitching  │
+                    │  Consolidated Golden Biomarker Signatures     │
+                    └───────────────────────┬───────────────────────┘
+                                            │
+                     ┌──────────────────────┴──────────────────────┐
+                     ▼                                             ▼
+┌─────────────────────────────────────────┐   ┌─────────────────────────────────────────┐
+│ Retrospective Biological Annotation     │   │ Cross-Validated Machine Learning        │
+│ - GENCODE v50 protein-coding & lncRNAs  │   │ - Nested CV generalizability framework  │
+│ - tRF databases, RepeatMasker, SILVA QC │   │ - ElasticNet & Random Forest ranking    │
+└─────────────────────────────────────────┘   └─────────────────────────────────────────┘
 ```
 
 #### Dual-Branch Convergence Architecture:
@@ -132,15 +135,54 @@ PRISM (**P**oly-modal **R**eference-free **I**dentification of **S**ignatures & 
 
 ### Side-by-Side Comparison
 
-| Feature | Parallel Pipeline (v2.0) | PRISM Pipeline (v1.0) |
-| :--- | :--- | :--- |
-| **Analytical Paradigm** | Reference-anchored alignment | Reference-free sequence discovery |
-| **Input Material** | Filtered FASTQ (Reamp R1, 15–100 nt) | Filtered FASTQ or residual unmapped reads |
-| **Core Data Structures** | Coordinate ledgers, BAMs, BedGraph | $k$-mer count matrices, compacted de Bruijn graphs |
-| **Target Scope** | Known transcripts, defined RNA domains, cut sites | Canonical RNAs, unannotated RNAs, modified loops, dark matter |
-| **Positional Resolution**| Single-nucleotide 5' and 3' coordinates | Assembled $k$-mer contigs, unitigs, bubble subgraphs |
-| **Statistical Methods** | Total Variation, PERMANOVA, PERMDISP | edgeR QL on unitigs, graph association, ML ranking |
-| **Primary Goal** | Mechanistic analysis of RNA cleavage and fragment stability | Unbiased biomarker discovery from altered sequence space |
+<div className="table-wrapper">
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Parallel Pipeline (v2.0)</th>
+      <th>PRISM Pipeline (v1.0)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Analytical Paradigm</strong></td>
+      <td>Reference-anchored alignment</td>
+      <td>Reference-free sequence discovery</td>
+    </tr>
+    <tr>
+      <td><strong>Input Material</strong></td>
+      <td>Filtered FASTQ (Reamp R1, 15–100 nt)</td>
+      <td>Filtered FASTQ or residual unmapped reads</td>
+    </tr>
+    <tr>
+      <td><strong>Core Data Structures</strong></td>
+      <td>Coordinate ledgers, BAMs, BedGraph</td>
+      <td><em>k</em>-mer count matrices, compacted de Bruijn graphs</td>
+    </tr>
+    <tr>
+      <td><strong>Target Scope</strong></td>
+      <td>Known transcripts, defined RNA domains, cut sites</td>
+      <td>Canonical RNAs, unannotated RNAs, modified loops, dark matter</td>
+    </tr>
+    <tr>
+      <td><strong>Positional Resolution</strong></td>
+      <td>Single-nucleotide 5' and 3' coordinates</td>
+      <td>Assembled <em>k</em>-mer contigs, unitigs, bubble subgraphs</td>
+    </tr>
+    <tr>
+      <td><strong>Statistical Methods</strong></td>
+      <td>Total Variation, PERMANOVA, PERMDISP</td>
+      <td>edgeR QL on unitigs, graph association, ML ranking</td>
+    </tr>
+    <tr>
+      <td><strong>Primary Goal</strong></td>
+      <td>Mechanistic analysis of RNA cleavage and fragment stability</td>
+      <td>Unbiased biomarker discovery from altered sequence space</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 ---
 
