@@ -1,22 +1,21 @@
 ---
 title: "Video Processing Pipeline"
 date: "2026-08-10"
-excerpt: "A web application for processing video files."
-tags: ["Python","Flask","HTML","CSS","JavaScript"]
+excerpt: "Web application for automated video segmentation, frame classification, and metadata extraction."
+tags: ["Python", "Flask", "OpenCV", "JavaScript"]
 repo: "https://github.com/Rusklass/video_processing_pipeline"
 ---
 
-The [**Video Processing Pipeline**](https://github.com/Rusklass/video_processing_pipeline) is a robust web application built to automate complex video processing workflows, including segmentation, classification, and metadata extraction.
+A lightweight web service for running automated video segmentation and metadata extraction jobs without manual command-line intervention.
 
-### Key Features
-- **Automated Processing:** Streamlines video analysis by automatically handling segmentation and extracting critical metadata without manual intervention.
-- **Backend Architecture:** Powered by **Python** and **Flask**, providing a lightweight but powerful routing system to handle heavy video file processing tasks.
-- **Intuitive Interface:** Features a clean web-based dashboard for uploading videos and viewing processed results.
+### How It Works
 
-### My Role
-I architected and developed the entire pipeline, focusing on creating a seamless integration between the heavy Python video processing scripts and a user-friendly front-end web interface.
+- **File Ingestion:** Users upload video files through a browser interface with progress feedback.
+- **Frame Processing:** Python workers segment video streams, sample keyframes, and run classification routines on frame sequences using OpenCV.
+- **Metadata Output:** Generates structured JSON summaries of detected segments, timestamps, and extracted frame properties.
 
-**Technologies Used:**
-- **Python & Flask**: For backend logic, video processing integration, and API routing.
-- **HTML5 & CSS3**: For a clean, semantic, and responsive user interface.
-- **JavaScript**: For asynchronous client-side operations like file uploading and dynamic status updates.
+### Stack
+
+- **Backend:** Python and Flask for HTTP endpoints and dispatching processing scripts.
+- **Client:** HTML5, CSS, and asynchronous JavaScript for uploads and status polling.
+- **Processing:** OpenCV and ffmpeg bindings for video file manipulation.

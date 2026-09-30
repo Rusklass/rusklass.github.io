@@ -1,43 +1,29 @@
 ---
 title: "Primer Design Tool"
 date: "2026-01-15"
-excerpt: "A specialized bioinformatics web application for automated design, thermodynamic evaluation, and optimization of stem-loop reverse transcription (RT) primers and quantitative PCR (qPCR) primers tailored for microRNA detection."
-tags: ["Python","FastAPI","Docker","Bioinformatics"]
-link: "https://pdt.olik.fans/"
+excerpt: "Web application for designing and evaluating stem-loop and two-tailed RT-qPCR primers targeting microRNAs."
+tags: ["Python", "FastAPI", "ViennaRNA", "Docker", "Bioinformatics"]
+link: "https://pdt.klassen.ing/"
 logo: "/logoPrimerDesignTool-removebg.png"
 ---
 
-The [**Primer Design Tool**](https://pdt.olik.fans/) was developed to address a critical bottleneck in standard RT-qPCR laboratory workflows.
+The [**Primer Design Tool (PDT)**](https://pdt.klassen.ing/) automates the design of stem-loop reverse transcription and two-tailed qPCR primers for mature microRNAs (~22 nt). 
 
-By automating the primer design process, the application significantly accelerates experiment planning and eliminates the risk of manual analytical errors, ensuring robust reproducibility across the laboratory.
+Because microRNAs are roughly the same length as a single standard PCR primer, conventional assay designs fail. Two-tailed assays solve this by binding both halves of the target miRNA with complementary arms connected by an internal loop. However, calculating the binding thermodynamics, secondary hairpin stabilities, and cross-dimerization manually across dozens of targets is impractical.
 
-### Key Features
-- **Workflow Automation:** Replaces manual primer design steps with an automated algorithmic pipeline tailored for complex molecular workflows.
-- **Robust Backend:** Powered by **Python** and **FastAPI**, implementing strict data sanitization and input validation protocols to handle biological sequences.
-- **Cross-platform Portability:** The entire application infrastructure is containerized using **Docker** and successfully deployed into a scalable cloud environment.
+### What the Application Does
 
-### My Role
-I executed the entire software development lifecycle (SDLC) independently, demonstrating total engineering ownership from the initial assessment of user-needs and prototyping, through rigorous testing, and finally to production deployment.
+- **Thermodynamic Scoring:** Evaluates nearest-neighbor melting temperatures ($T_m$), enthalpy, and entropy across both binding arms and the stem region.
+- **Secondary Structure Modeling:** Uses the ViennaRNA package (`RNAfold`) to predict competing hairpin formations and ensure the designed probe remains open for target hybridization.
+- **Batch Processing:** Accepts miRBase accession IDs or raw sequence inputs, searches local sequence indices with SQLite FTS5, and outputs ranked candidate pairs.
+- **Visual Verification:** Renders interactive 2D RNA secondary structure layouts in the browser using Forna and D3.js.
 
-### Technologies Used:
+### Engineering & Architecture
 
-#### Backend
-- **Language & Framework:** Python 3, FastAPI & uvicorn
-- **Data Access & Storage:** SQLite with FTS5 full-text search index, managed via aiosqlite and SQLAlchemy 2.0 (async engine)
+- **Backend:** Python 3 with FastAPI (`uvicorn`), using SQLAlchemy 2.0 and `aiosqlite` for asynchronous database queries.
+- **Structure Engine:** ViennaRNA C-library wrapper with fallback routines for lightweight deployment targets.
+- **Background Tasks:** Celery worker with Redis for batch calculations, falling back to synchronous execution when run locally without broker dependencies.
+- **Frontend:** Server-rendered Jinja2 templates styled with vanilla CSS, vanilla JavaScript, and dynamic HTML5 canvas/SVG visualizations.
+- **Deployment:** Multi-stage Docker containerization deployed on a production VPS with automated TLS certificates.
 
-#### Background Tasks & Caching: 
-- **Celery** with Redis (supports fallback to eager synchronous mode when Redis is offline)
-- **Rate Limiting & Security:** JWT authentication (python-jose), password hashing (passlib/bcrypt), and endpoint rate limiting (slowapi)
-
-#### Bioinformatics Core
-- **RNA Structure Prediction:** ViennaRNA library (RNAfold wrapper with mock fallback when unavailable on host)
-- **Thermodynamic Modeling:** Custom Nearest-Neighbor (NN) thermodynamic and hairpin generation algorithms
-
-#### Frontend
-- **Templating:** Server-rendered Jinja2 templates
-- **Styling & Interactivity:** Vanilla CSS, JavaScript / jQuery
-- **Visualization:** Forna (D3.js-based visualization engine for interactive RNA secondary structure layouts)
-
-#### Architecture & Testing
-- **Pattern:** Hexagonal Architecture with abstract interfaces for repositories and services
-- **Testing:** pytest, pytest-asyncio unit and integration test suite
+The tool is routinely used by researchers at BIOCEV and the GeneCore facility to design assays for acute neurotrauma and fluid biomarker studies.

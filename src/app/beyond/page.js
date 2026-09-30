@@ -8,14 +8,10 @@ export const metadata = {
 const BEYOND_SECTIONS = [
   {
     id: 'expeditions',
-    tag: '01 // Mental Resilience',
-    title: 'Backcountry Expeditions & Siberian Roots',
-    text: `My approach to problem-solving was forged in Siberia through competitive
-    athletics and wilderness expeditions across the Altai Mountains. Traversing remote
-    rivers with 1980s paper maps, enduring sub-zero conditions, and restoring collapsed
-    taiga cabins built a deep composure under uncertainty and an absolute reliance on teamwork.
-    `,
-    takeaway: 'Discipline in the lab reflects endurance in the wilderness.',
+    tag: '01 // Expeditions',
+    title: 'Backcountry Routes & Siberian Roots',
+    text: `I grew up in Siberia, spending years on long-distance backcountry trips and river routes across the Altai Mountains. Navigating off-trail with topographic maps, dealing with sudden weather shifts, and fixing up abandoned winter cabins taught me to keep a level head when plans break down.`,
+    takeaway: 'Handling unexpected variables in the field carries straight into wet-lab and computational work.',
     imagePath: '/images/beyond/expeditions.JPG',
     caption: 'Altai Mountains & Siberian Backcountry',
     hasImage: true,
@@ -23,11 +19,9 @@ const BEYOND_SECTIONS = [
   {
     id: 'fermentation',
     tag: '02 // Applied Microbiology',
-    title: 'Home Fermentation & Microbial Dynamics',
-    text: `Fermentation is applied microbiology at home. I explore yeast metabolic kinetics,
-    nutrient schedules, and temperature regulation through traditional mead brewing,
-    sparkling honey beverages, and craft beer. Managing batch consistency, attenuation, and flavor.`,
-    takeaway: 'Kinetic control of living systems outside the laboratory.',
+    title: 'Fermentation & Yeast Cultures',
+    text: `Outside the lab, fermentation is a practical way to experiment with living systems. I brew meads, sparkling honey beverages, and beers, focusing on yeast pitch rates, temperature control, and nutrient timing to keep batches consistent and dry.`,
+    takeaway: 'Monitoring growth kinetics and contamination risk in small-batch production.',
     imagePath: '/images/beyond/fermentation.JPG',
     caption: 'Applied Microbiology & Fermentation Kinetics',
     hasImage: true,
@@ -40,19 +34,19 @@ export default function BeyondSciencePage() {
       {/* Header */}
       <header className={styles.header}>
         <div className={styles.tag}>
-          <span>Beyond the Terminal • Craft &amp; Systems</span>
+          <span>Outside the Lab • Personal Background</span>
         </div>
-        <h1 className={styles.title}>Beyond Science: Craft, Systems &amp; The Human Element</h1>
+        <h1 className={styles.title}>Beyond Science: Background &amp; Projects</h1>
         <p className={styles.subtitle}>
-          How wilderness expeditions, microbial fermentation kinetics, precision thermodynamics, and 3D digital sculpture inform a holistic approach to scientific problem-solving.
+          Wilderness expeditions, home fermentation, and small hands-on projects that balance time spent writing code and analyzing sequencing runs.
         </p>
       </header>
 
       {/* Scientific Philosophy Card */}
       <div className={styles.philosophyCard}>
-        <h2 className={styles.philosophyTitle}>Scientific Philosophy &amp; Shared Responsibility</h2>
+        <h2 className={styles.philosophyTitle}>Approach to Research</h2>
         <p className={styles.philosophyText}>
-          In competitive athletics, you are responsible only for your personal performance. In science and engineering, accountability is collective: you are responsible for the progress of your team, the stewardship of public funding, and the absolute reproducibility of findings that future medical therapies may build upon. I approach research with a dedication to open science, clean documentation, and resilient teamwork.
+          In sports, outcomes are mostly personal. In research, work is collaborative: code, protocols, and data have to be clear enough for colleagues to audit, reproduce, and build on. I prioritize well-documented scripts, versioned analysis pipelines, and honest reporting of negative or ambiguous results.
         </p>
       </div>
 

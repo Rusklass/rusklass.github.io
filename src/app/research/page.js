@@ -7,6 +7,13 @@ export const metadata = {
 
 const PUBLICATIONS = [
   {
+    title: "Circulating microRNA dynamics and severity stratification in acute human spinal cord injury",
+    authors: "Ruslan A. Klassen, Sarka Chytilova, Eva Rohlova, Pavel Abaffy, Ales Hejcl, Karel Pistek, David Bludovsky, Jakub Jablonsky, Eva Svecova, Jaroslav Adamkov, Kristyna Sintakova, Nataliya Romanyuk, Lukas Valihrach",
+    journal: "In Review / NCBI GEO GSE326859",
+    year: "2026",
+    doi: "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE326859",
+  },
+  {
     title: "Neural stem cell-derived extracellular vesicles drive early neuroprotective and anti-apoptotic responses in spinal cord injury organotypic slices",
     authors: "Kristyna Sintakova, Vojtech Sprincl, Ivan Arzhanov, Ruslan Klassen, Lukas Valihrach, Nataliya Romanyuk",
     journal: "Frontiers in Cellular Neuroscience",
@@ -53,11 +60,10 @@ const PUBLICATIONS = [
 export default function ResearchPage() {
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Research & Publications</h1>
+      <h1 className={styles.title}>Research &amp; Publications</h1>
 
-      <p style={{ fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '2rem' }}>
-        My research focuses on understanding the molecular mechanisms underlying nervous system injuries. I apply advanced multi-omics profiling, machine learning, and single-cell transcriptomics to discover novel therapeutic targets for neuroregeneration.
-        Below is a selected list of my peer-reviewed publications.
+      <p style={{ fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '2rem', color: 'var(--text-secondary)' }}>
+        My research focuses on molecular mechanisms in central nervous system injury and repair. Current projects center on cell-free RNA fragmentomics in late-stage ischemic stroke, integrated multi-omics (miRNA, mRNA, and proteomics) in acute spinal cord trauma, and glial cell state transitions during neuroinflammation. Below is a selected list of peer-reviewed publications.
       </p>
 
       <div className={styles.grid}>

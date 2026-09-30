@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Ruslan Klassen | Bioinformatician",
-  description: "Decoding acute CNS neurotrauma through integrated multi-omics (miRNA, mRNA, proteomics), glial biology, and reproducible scientific software.",
+  description: "Computational biology and multi-omics research across CNS neurotrauma, cell-free RNA fragmentomics, and scientific software.",
 };
 
 export default function RootLayout({ children }) {
@@ -44,10 +44,10 @@ export default function RootLayout({ children }) {
               color: 'var(--text-muted)'
             }}>
               <div>
-                &copy; {new Date().getFullYear()} Ruslan Klassen • Built with German Precision
+                &copy; {new Date().getFullYear()} Ruslan Klassen
               </div>
               <div style={{ display: 'flex', gap: '1rem' }}>
-                <a href="https://pdt.olik.fans" target="_blank" rel="noopener noreferrer">PrimerDesignTool</a>
+                <a href="https://pdt.klassen.ing" target="_blank" rel="noopener noreferrer">PrimerDesignTool</a>
                 <span>•</span>
                 <a href="https://github.com/Rusklass" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>

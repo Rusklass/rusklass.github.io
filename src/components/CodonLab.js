@@ -147,7 +147,7 @@ export default function CodonLab() {
         </div>
 
         <a 
-          href="https://pdt.olik.fans" 
+          href="https://pdt.klassen.ing" 
           target="_blank" 
           rel="noopener noreferrer" 
           className={styles.pdtBadge}
@@ -282,7 +282,7 @@ export default function CodonLab() {
           Need full thermodynamic optimization, two-tailed primer models, and secondary hairpin structures?
         </div>
         <a 
-          href="https://pdt.olik.fans" 
+          href="https://pdt.klassen.ing" 
           target="_blank" 
           rel="noopener noreferrer" 
           className={styles.pdtLaunchBtn}
