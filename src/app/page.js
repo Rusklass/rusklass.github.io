@@ -101,7 +101,7 @@ export default function Home() {
               <strong>Ruslan A. Klassen</strong>, Sarka Chytilova, Eva Rohlova, Pavel Abaffy, Ales Hejcl, Karel Pistek, David Bludovsky, Jakub Jablonsky, Eva Svecova, Jaroslav Adamkov, Kristyna Sintakova, Nataliya Romanyuk, Lukas Valihrach
             </p>
             <div className={styles.pubHighlight}>
-              <strong>Key Finding:</strong> Identified and validated an objective hyper-acute 4-miRNA plasma panel (miR-92a-3p, miR-206, miR-497-5p, miR-150-5p) across 113 human subjects, achieving 71.2% sensitivity for severe injury stratification under cross-validated threshold calibration.
+              <strong>Key Finding:</strong> Identified and validated an objective hyper-acute 4-miRNA plasma panel (identities blinded pending publication) across 113 human subjects, achieving 71.2% sensitivity for severe injury stratification under cross-validated threshold calibration.
             </div>
           </Link>
 
